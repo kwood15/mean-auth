@@ -2,13 +2,13 @@
   "name": "mean-auth",
   "author": "Kay Wood",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "A MEAN stack authentication app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
