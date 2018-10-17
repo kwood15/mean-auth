@@ -1,29 +1,30 @@
 <div class="container">
-  <h1 class="form-signin-heading">Register</h1>
-  <p class="lead">Already a member? Please <a routerLink="/login">log in</a> instead.</p>
-  <form (submit)="register()">
-    <div class="form-group">
-      <mat-form-field>
-        <input class="form-control" matInput placeholder="Enter your name" name="name" [(ngModel)]="credentials.name">
-        <mat-icon matSuffix>person</mat-icon>
-      </mat-form-field>
+  <div class="card">
+    <div class="card-content">
+      <h1 class="form-signin-heading">Register</h1>
+      <p class="lead">Already a member? Please <a routerLink="/login">log in</a> instead.</p>
+      <form (submit)="register()">
+        <div class="form-group">
+          <mat-form-field>
+            <input class="form-control" matInput placeholder="Enter your name" name="name" [(ngModel)]="credentials.name">
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field>
+            <input class="form-control" matInput type="email" placeholder="Enter your email" name="email" [formControl]="email" [(ngModel)]="credentials.email" required>
+            <mat-icon matSuffix>alternate_email</mat-icon>
+            <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field>
+            <input class="form-control" matInput placeholder="Enter your password" name="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="credentials.password">
+            <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off' }}</mat-icon>
+          </mat-form-field>
+        </div>
+        <button type="submit" mat-button mat-raised-button>Register!</button>
+      </form>
     </div>
-
-    <div class="form-group">
-      <mat-form-field>
-        <input class="form-control" matInput placeholder="Enter your email" name="email" [formControl]="email" [(ngModel)]="credentials.email" required>
-        <mat-icon matSuffix>alternate_email</mat-icon>
-        <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
-      </mat-form-field>
-    </div>
-
-    <div class="form-group">
-      <mat-form-field>
-        <input class="form-control" matInput placeholder="Enter your password" name="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="credentials.password">
-        <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off' }}</mat-icon>
-      </mat-form-field>
-    </div>
-    <button type="submit" mat-button mat-raised-button>Register!</button>
-  </form>
 </div>
 

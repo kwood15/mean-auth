@@ -1,4 +1,4 @@
-<div class="navbar navbar-default">
+<!-- <div class="navbar navbar-default">
   <div class="container">
     <div id="navbar-main">
       <ul class="nav navbar-nav">
@@ -11,6 +11,67 @@
       </ul>
     </div>
   </div>
-</div>
+</div> -->
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="https://placeholdit.co//i/112x28?&text=MEAN AUTH" alt="logo">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu" (click)="toggleNavbar()">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navMenu" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Documentation
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            About
+          </a>
+          <a class="navbar-item">
+            Jobs
+          </a>
+          <a class="navbar-item">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a *ngIf="!auth.isLoggedIn()" class="button is-light" routerLink="/register">
+            <strong>Register</strong>
+          </a>
+          <a *ngIf="!auth.isLoggedIn()" class="button is-light" routerLink="/login">
+            Sign in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>
