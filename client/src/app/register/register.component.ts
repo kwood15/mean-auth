@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthenticationService, TokenPayload } from '../authentication.service';
@@ -7,7 +7,7 @@ import { AuthenticationService, TokenPayload } from '../authentication.service';
   selector: 'app-register',
   templateUrl: './register.component.html'
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   name: '';
   hide = true;
@@ -17,10 +17,6 @@ export class RegisterComponent implements OnInit {
     name: '',
     password: ''
   };
-
-  ngOnInit() {
-
-  }
 
   constructor(private auth: AuthenticationService, private router: Router) {}
 
