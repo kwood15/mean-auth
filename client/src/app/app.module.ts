@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutModule } from '@angular/cdk/layout';
 
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -13,7 +14,6 @@ import { HomeComponent } from './home/home.component';
 import { AuthenticationService } from './authentication.service';
 import { AuthenticationGuardService } from './authentication-guard.service';
 
-// tslint:disable-next-line:max-line-length
 import {
   MatFormFieldModule,
   MatTabsModule,
@@ -23,8 +23,6 @@ import {
   MatMenuModule,
   MatCardModule
 } from '@angular/material';
-
-import { LayoutModule } from '@angular/cdk/layout';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

@@ -5,7 +5,7 @@
   <form (submit)="login()">
     <div class="form-group">
       <mat-form-field>
-        <input class="form-control" matInput placeholder="Enter your email" [formControl]="email" required>
+        <input class="form-control" matInput placeholder="Enter your email" name="email" [formControl]="email" [(ngModel)]="credentials.email" required>
         <mat-icon matSuffix>alternate_email</mat-icon>
         <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
       </mat-form-field>
@@ -13,10 +13,11 @@
 
     <div class="form-group">
       <mat-form-field>
-        <input class="form-control" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+        <input class="form-control" matInput placeholder="Enter your password" name="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="credentials.password">
         <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off' }}</mat-icon>
       </mat-form-field>
     </div>
-    <button type="submit" mat-button>Sign in!</button>
+    <button type="submit" mat-button-raised>Sign in!</button>
   </form>
 </div>
+

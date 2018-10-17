@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormControl, Validators } from '@angular/forms';
 import { AuthenticationService, TokenPayload } from '../authentication.service';
+import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
   templateUrl: './register.component.html'
 })
+
 export class RegisterComponent {
+  hide: boolean;
   email = new FormControl('', [Validators.required, Validators.email]);
-  name: '';
-  hide = true;
 
   credentials: TokenPayload = {
     email: '',
@@ -20,12 +19,6 @@ export class RegisterComponent {
 
   constructor(private auth: AuthenticationService, private router: Router) {}
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
-  }
-
   register() {
     this.auth.register(this.credentials).subscribe(() => {
       this.router.navigateByUrl('/profile');
@@ -33,4 +26,11 @@ export class RegisterComponent {
       console.error(err);
     });
   }
+
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+        this.email.hasError('email') ? 'Not a valid email' :
+            '';
+  }
 }
+

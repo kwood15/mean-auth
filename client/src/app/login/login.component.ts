@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
+import { AuthenticationService, TokenPayload } from '../authentication.service';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AuthenticationService, TokenPayload } from '../authentication.service';
-
 @Component({
-  selector: 'app-login',
   templateUrl: './login.component.html'
 })
 
 export class LoginComponent {
+  hide: boolean;
   email = new FormControl('', [Validators.required, Validators.email]);
-  hide = true;
 
   credentials: TokenPayload = {
     email: '',
@@ -34,3 +32,4 @@ export class LoginComponent {
     });
   }
 }
+
