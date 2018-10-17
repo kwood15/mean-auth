@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MatNavComponent } from './navigation/navigation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -15,7 +14,16 @@ import { AuthenticationService } from './authentication.service';
 import { AuthenticationGuardService } from './authentication-guard.service';
 
 // tslint:disable-next-line:max-line-length
-import { MatFormFieldModule, MatInputModule, MatIconModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatListModule } from '@angular/material';
+import {
+  MatFormFieldModule,
+  MatTabsModule,
+  MatInputModule,
+  MatIconModule,
+  MatButtonModule,
+  MatMenuModule,
+  MatCardModule
+} from '@angular/material';
+
 import { LayoutModule } from '@angular/cdk/layout';
 
 const routes: Routes = [
@@ -28,12 +36,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MatNavComponent,
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
-    MatNavComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +52,10 @@ const routes: Routes = [
     MatInputModule,
     MatIconModule,
     LayoutModule,
-    MatToolbarModule,
     MatButtonModule,
-    MatSidenavModule,
-    MatListModule
+    MatTabsModule,
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [
     AuthenticationService,

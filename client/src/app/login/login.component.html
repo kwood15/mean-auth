@@ -1,19 +1,22 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <h1 class="form-signin-heading">Sign in</h1>
-      <p class="lead">Not a member? Please <a routerLink="/register">register</a> instead.</p>
-      <form (submit)="login()">
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password">
-        </div>
-        <button type="submit" class="btn btn-default">Sign in!</button>
-      </form>
+  <h1 class="form-signin-heading">Sign in</h1>
+  <p class="lead">Not a member? Please <a routerLink="/register">register</a> instead.</p>
+
+  <form (submit)="login()">
+    <div class="form-group">
+      <mat-form-field>
+        <input class="form-control" matInput placeholder="Enter your email" [formControl]="email" required>
+        <mat-icon matSuffix>alternate_email</mat-icon>
+        <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
     </div>
-  </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input class="form-control" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off' }}</mat-icon>
+      </mat-form-field>
+    </div>
+    <button type="submit" mat-button>Sign in!</button>
+  </form>
 </div>
