@@ -1,24 +1,8 @@
-<!-- <div class="navbar navbar-default">
-  <div class="container">
-    <div id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li><a routerLink="/">Home</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></li>
-        <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></li>
-        <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</div> -->
-
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://placeholdit.co//i/112x28?&text=MEAN AUTH" alt="logo">
+    <a class="navbar-item" href="/">
+      <img src="https://placeholdit.co//i/112x28?&text=MEAN AUTH" alt="company logo">
     </a>
-
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu" (click)="toggleNavbar()">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -28,45 +12,46 @@
 
   <div id="navMenu" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        Home
+      <a class="navbar-item" routerLink="/new-in">
+        New in
       </a>
-
-      <a class="navbar-item">
-        Documentation
+      <a class="navbar-item" routerLink="/clothing">
+        Clothing
       </a>
-
+      <a class="navbar-item" routerLink="/petite-clothing">
+        Petite
+      </a>
+      <a class="navbar-item" routerLink="/shoes">
+        Shoes
+      </a>
+      <a class="navbar-item" routerLink="/accessories">
+        Accessories
+      </a>
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
+        <a class="navbar-link" routerLink="sale">
+          Sale
         </a>
-
         <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
+          <a class="navbar-item" routerLink="sale/tops">
+            Tops
           </a>
         </div>
       </div>
     </div>
-
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a *ngIf="!auth.isLoggedIn()" class="button is-light" routerLink="/register">
+          <a *ngIf="!auth.isLoggedIn()" routerLink="/register">
             <strong>Register</strong>
           </a>
-          <a *ngIf="!auth.isLoggedIn()" class="button is-light" routerLink="/login">
+          <a *ngIf="!auth.isLoggedIn()" routerLink="/login">
             Sign in
+          </a>
+          <a *ngIf="auth.isLoggedIn()" routerLink="/profile">
+            Welcome <strong>{{ auth.getUserDetails()?.name }}</strong>
+          </a>
+          <a *ngIf="auth.isLoggedIn()" (click)="auth.logout()">
+            Logout
           </a>
         </div>
       </div>
