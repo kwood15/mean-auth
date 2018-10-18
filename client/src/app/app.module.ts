@@ -22,6 +22,8 @@ import { ShoesComponent } from './shoes/shoes.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ModalComponent } from './modal/modal.component';
+import { ModalLoginComponent } from './modal-login/modal-login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SaleComponent } from './sale/sale.component';
 import { SaleTopsComponent } from './sale/tops/sale-tops.component';
@@ -35,7 +37,8 @@ import {
   MatMenuModule,
   MatCardModule,
   MatGridListModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatDialogModule
 } from '@angular/material';
 
 const routes: Routes = [
@@ -67,7 +70,9 @@ const routes: Routes = [
     AccessoriesComponent,
     SaleComponent,
     SaleTopsComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ModalComponent,
+    ModalLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +91,11 @@ const routes: Routes = [
     MatMenuModule,
     MatGridListModule,
     MatPaginatorModule,
-    SaleRoutingModule
+    SaleRoutingModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    ModalLoginComponent
   ],
   providers: [
     AuthenticationService,

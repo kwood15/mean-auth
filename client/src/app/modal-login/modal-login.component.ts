@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService, TokenPayload } from '../authentication.service';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
-  templateUrl: './login.component.html'
+  selector: 'app-modal-login',
+  templateUrl: './modal-login.component.html'
 })
 
-export class LoginComponent {
+export class ModalLoginComponent implements OnInit {
   hide: boolean;
   email = new FormControl('', [Validators.required, Validators.email]);
 
@@ -16,7 +18,13 @@ export class LoginComponent {
     password: ''
   };
 
-  constructor(private auth: AuthenticationService, private router: Router) {}
+  constructor(
+    public dialogRef: MatDialogRef<ModalLoginComponent>, 
+    private auth: AuthenticationService,
+    private router: Router) {}
+
+  ngOnInit() {
+  }
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
@@ -25,11 +33,14 @@ export class LoginComponent {
 
   login() {
     this.auth.login(this.credentials).subscribe(() => {
+      this.onNoClick();
       this.router.navigateByUrl('/profile');
     }, (err) => {
       console.error(err);
     });
   }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
-
-
