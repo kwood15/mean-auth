@@ -49,7 +49,7 @@ const routes: Routes = [
   { path: 'shoes', component: ShoesComponent },
   { path: 'accessories', component: AccessoriesComponent },
   { path: 'search-results', component: SearchResultsComponent },
-  { path: 'product-detail', component: ProductDetailComponent },
+  { path: 'product-detail/:id', component: ProductDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthenticationGuardService] }

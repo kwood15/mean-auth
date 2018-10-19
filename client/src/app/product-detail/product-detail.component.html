@@ -1,21 +1,17 @@
 <div class="container">
-  <div class="columns">
+  <div *ngIf="product$" class="columns">
     <div class="column">
-      Product image
+      <img src="{{ product$.url }}" alt="{{ product$.title }}">
     </div>
     <div class="column">
       <mat-tab-group>
         <mat-tab label="Product Information">
           <div class="content">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Corrupti placeat minima rem numquam, quidem iusto, tempora,
-              laboriosam illum nobis neque eveniet consequatur facere deleniti?
-              Itaque quibusdam quas atque reiciendis consequuntur.
-            </p>
+            <p>{{ product$.title }}</p>
           </div>
         </mat-tab>
         <mat-tab label="Sizing">
-          <p>Specification</p>
+          <p>No data available</p>
         </mat-tab>
         </mat-tab-group>
     </div>

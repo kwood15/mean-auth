@@ -4,8 +4,20 @@
       This container is <strong>centered</strong> on desktop.
     </div>
   </div>
+  <div class="container">
+    <div *ngIf="products$" class="columns is-multiline">
+      <div *ngFor="let product of products$" class="column is-one-fifth">
+        {{ product.title }}
+        <a routerLink="/product-detail/{{product.id}}" title="View product details">
+          <img src="{{ product.url }}" alt="product image">
+        </a>
+      </div>
+    </div>
+  </div>
   <mat-grid-list cols="1" rowHeight="2:1">
-    <mat-grid-tile>Homepage banner</mat-grid-tile>
+    <mat-grid-tile>
+      Banner
+    </mat-grid-tile>
   </mat-grid-list>
   <section class="hero">
     <div class="hero-body">
