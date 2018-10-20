@@ -44,9 +44,9 @@
           <a *ngIf="!auth.isLoggedIn()" routerLink="/register">
             <strong>Register</strong>
           </a>
-          <!-- <a *ngIf="!auth.isLoggedIn()" routerLink="/login">
+          <a *ngIf="!auth.isLoggedIn()" routerLink="/login">
             Sign in
-          </a> -->
+          </a>
           <app-modal *ngIf="!auth.isLoggedIn()"></app-modal>
           <a *ngIf="auth.isLoggedIn()" routerLink="/profile">
             Welcome <strong>{{ auth.getUserDetails()?.name }}</strong>

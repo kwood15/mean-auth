@@ -9,7 +9,6 @@ $candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
 $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 @include angular-material-theme($candy-app-theme);
 
-// Bulma
 $purple: #8A4D76;
 $pink: #FA7C91;
 $brown: #757763;
@@ -60,3 +59,6 @@ $button-background-color: #ed4463;
 .mat-grid-tile {
   background: $beige-light;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }

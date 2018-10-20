@@ -19,7 +19,7 @@ export class ModalLoginComponent implements OnInit {
   };
 
   constructor(
-    public dialogRef: MatDialogRef<ModalLoginComponent>, 
+    public dialogRef: MatDialogRef<ModalLoginComponent>,
     private auth: AuthenticationService,
     private router: Router) {}
 
