@@ -12,6 +12,7 @@ import { AuthenticationService } from './authentication.service';
 import { AuthenticationGuardService } from './authentication-guard.service';
 
 import { AppComponent } from './app.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { HomeComponent } from './home/home.component';
 import { ClothingComponent } from './clothing/clothing.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
@@ -42,17 +43,83 @@ import {
 } from '@angular/material';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'new-in', component: NewInComponent },
-  { path: 'clothing', component: ClothingComponent },
-  { path: 'petite-clothing', component: PetiteClothingComponent },
-  { path: 'shoes', component: ShoesComponent },
-  { path: 'accessories', component: AccessoriesComponent },
-  { path: 'search-results', component: SearchResultsComponent },
-  { path: 'product-detail/:id', component: ProductDetailComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthenticationGuardService] }
+  {
+    path: '',
+    component: HomeComponent,
+    data: {
+      breadcrumb: ''
+    }
+  },
+  {
+    path: 'new-in',
+    component: NewInComponent,
+    data: {
+      breadcrumb: 'New in'
+    }
+  },
+  {
+    path: 'clothing',
+    component: ClothingComponent,
+    data: {
+      breadcrumb: 'Clothing'
+    }
+  },
+  {
+    path: 'petite-clothing',
+    component: PetiteClothingComponent,
+    data: {
+      breadcrumb: 'Petite Clothing'
+    }
+  },
+  {
+    path: 'shoes',
+    component: ShoesComponent,
+    data: {
+      breadcrumb: 'Shoes'
+    }
+  },
+  {
+    path: 'accessories',
+    component: AccessoriesComponent,
+    data: {
+      breadcrumb: 'Accessories'
+    }
+  },
+  {
+    path: 'search-results',
+    component: SearchResultsComponent,
+    data: {
+      breadcrumb: 'Search Results'
+    }
+  },
+  {
+    path: 'product-detail/:id',
+    component: ProductDetailComponent,
+    data: {
+      breadcrumb: 'product-detail'
+    }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      breadcrumb: 'Login'
+    }
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: {
+      breadcrumb: 'Register'
+    }
+  },
+  { path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthenticationGuardService],
+    data: {
+      breadcrumb: 'Your profile'
+    }
+  }
 ];
 
 @NgModule({
@@ -72,7 +139,8 @@ const routes: Routes = [
     SaleTopsComponent,
     ProductDetailComponent,
     ModalComponent,
-    ModalLoginComponent
+    ModalLoginComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,

@@ -8,8 +8,17 @@ const saleRoutes: Routes = [
   {
     path: 'sale',
     component: SaleComponent,
+    data: {
+      breadcrumb: 'Sale'
+    },
     children: [
-      { path: 'tops', component: SaleTopsComponent }
+      {
+        path: 'tops',
+        component: SaleTopsComponent,
+        data: {
+          breadcrumb: 'Tops'
+        },
+      }
     ]
   }
 ];
