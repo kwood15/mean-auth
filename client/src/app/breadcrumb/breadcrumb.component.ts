@@ -30,8 +30,8 @@ export class BreadcrumbComponent implements OnInit {
 
     const nextUrl = `${url}${path}/`;
     const breadcrumb = {
-        label,
-        url: nextUrl
+      label,
+      url: nextUrl
     };
 
     const newBreadcrumbs = [ ...breadcrumbs, breadcrumb ];
