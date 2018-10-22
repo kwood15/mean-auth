@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-accessories',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AccessoriesComponent implements OnInit {
+  products$: object;
 
-  constructor() { }
+  constructor(private data: DataService) {}
 
   ngOnInit() {
+    this.data.getProducts().subscribe(
+      data => this.products$ = data
+    );
   }
-
 }

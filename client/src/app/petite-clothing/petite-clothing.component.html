@@ -1,3 +1,9 @@
-<p>
-  petite-clothing works!
-</p>
+<div class="container">
+  <div class="columns is-multiline">
+    <div *ngFor="let product of products$" class="column is-one-quarter">
+      <a routerLink="/product-detail/{{product.id}}" title="{{ product.title }}">
+        <img src="{{ product.url }}" alt="product image">
+      </a>
+    </div>
+  </div>
+</div>

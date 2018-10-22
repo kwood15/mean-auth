@@ -17,6 +17,6 @@ export class DataService {
   }
 
   getProducts() {
-    return this.http.get(`${this.baseUrl}/photos?_page=1&_limit=10`);
+    return this.http.get(`${this.baseUrl}/photos?_page=1&_limit=16`);
   }
 }

@@ -33,24 +33,7 @@ $input-shadow: none;
 $button-color: white;
 $button-background-color: #ed4463;
 
-// Import only what you need from Bulma
-@import '../node_modules/bulma/sass/utilities/_all.sass';
-
-@import '../node_modules/bulma/sass/base/_all.sass';
-
-@import '../node_modules/bulma/sass/grid/_all.sass';
-
-@import '../node_modules/bulma/sass/elements/box.sass';
-@import '../node_modules/bulma/sass/elements/button.sass';
-@import '../node_modules/bulma/sass/elements/container.sass';
-@import '../node_modules/bulma/sass/elements/form.sass';
-@import '../node_modules/bulma/sass/elements/title.sass';
-
-@import '../node_modules/bulma/sass/components/card.sass';
-@import '../node_modules/bulma/sass/components/breadcrumb.sass';
-@import '../node_modules/bulma/sass/components/navbar.sass';
-
-@import '../node_modules/bulma/sass/layout/_all.sass';
+@import '../node_modules/bulma/bulma.sass';
 
 // To do
 .container {
@@ -61,5 +44,29 @@ $button-background-color: #ed4463;
   background: $beige-light;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.sticky {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &--content {
+    flex: 1 0 auto;
+    width: 100%;
+    padding: 1rem 1rem 5em 1rem;
+    &:after {
+      content: '\00a0';
+      display: block;
+      margin-top: 1.5em;
+      height: 0;
+      visibility: hidden;
+    }
+  }
+}
